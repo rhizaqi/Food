@@ -15,9 +15,40 @@ module.exports = (sequelize, DataTypes) => {
   }
   Food.init(
     {
-      name: DataTypes.STRING,
-      price: DataTypes.INTEGER,
-      description: DataTypes.STRING,
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Name is required",
+          },
+          notEmpty: {
+            msg: "Name is required",
+          },
+        },
+      },
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Price is required",
+          },
+          notNull: {
+            msg: "Price is required",
+          },
+        },
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        notEmpty: {
+          msg: "Description is required",
+        },
+        notNull: {
+          msg: "Description is required",
+        },
+      },
       categoryId: DataTypes.INTEGER,
     },
     {
