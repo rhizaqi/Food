@@ -1,24 +1,24 @@
 [
   {
-    "foodName": "Margherita Pizza",
+    "name": "Margherita Pizza",
     "price": 8.99,
     "description": "Classic pizza with fresh tomatoes, mozzarella cheese, and basil.",
     "categoryId": 1
   },
   {
-    "foodName": "Caesar Salad",
+    "name": "Caesar Salad",
     "price": 6.5,
     "description": "Crisp romaine lettuce with Caesar dressing, croutons, and parmesan.",
     "categoryId": 2
   },
   {
-    "foodName": "Cheeseburger",
+    "name": "Cheeseburger",
     "price": 10.99,
     "description": "Juicy beef burger with cheddar cheese, lettuce, and tomato.",
     "categoryId": 3
   },
   {
-    "foodName": "Spaghetti Carbonara",
+    "name": "Spaghetti Carbonara",
     "price": 12.5,
     "description": "Pasta with creamy sauce, pancetta, and parmesan cheese.",
     "categoryId": 4

@@ -13,6 +13,15 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
+    let data = require('../mySeeds/User.json')
+
+    data = data.map( el => {
+      el.password = hashPassword(el.password)
+      el.createdAt = el.updatedAt = new Date()
+      return el
+    })
+
+    await queryInterface.bulkInsert('Users', data, {});
   },
 
   async down(queryInterface, Sequelize) {
@@ -22,5 +31,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete('Users', null, {});
   },
 };
