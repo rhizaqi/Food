@@ -13,6 +13,15 @@ module.exports = class UserController {
       throw error;
     }
   }
+
+  static async register(req, res){
+    try {
+      
+    } catch (error) {
+      throw error
+    }
+  }
+  
   static async login(req, res) {
     try {
         
