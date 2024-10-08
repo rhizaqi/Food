@@ -55,9 +55,7 @@ module.exports = class FoodController {
       const putFood = await Food.update ({
         name, price, description, categoryId
       }, {
-        where : {
-          id
-        }
+        where: id
       })
 
       res.status(201).json({
@@ -65,6 +63,8 @@ module.exports = class FoodController {
       })
 
     } catch (error) {
+      console.log(error);
+      
       throw error;
     }
   }
@@ -80,6 +80,7 @@ module.exports = class FoodController {
           name:"NotFound"
         }
       }
+      
       await Food.destroy({
         where: {
           id
