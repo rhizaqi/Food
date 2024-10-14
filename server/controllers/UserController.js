@@ -1,3 +1,5 @@
+const { comparePassword } = require("../helper/bcrypt");
+const { signToken } = require("../helper/jwt");
 const { User } = require("../models/");
 
 module.exports = class UserController {
@@ -24,21 +26,49 @@ module.exports = class UserController {
         password,
       });
 
-      console.log(newUser,`<<<<??`);
-      
+      console.log(newUser, `<<<<??`);
 
       res.status(200).json({
         message: "Successfully registered",
       });
     } catch (error) {
       console.log(error, `???`);
-
       throw error;
     }
   }
 
-  static async login(req, res) {
+  static async login(req, res, next) {
     try {
+      const { email, password } = req.body;
+
+      console.log(req.body, `??/`);
+
+      const goIn = await User.findOne({
+        where: {
+          email,
+        },
+      });
+
+      // console.log(goIn, `User <<<<`);
+
+      if (!goIn) {
+        throw error;
+      }
+
+      const checkPassword = comparePassword(password, goIn.password);
+
+      console.log(checkPassword, `??`);
+
+      const access_token = signToken({
+        id: goIn.id,
+        name: goIn.name,
+      });
+
+      // console.log(createToken, `tokenn`);
+      res.status(200).json({
+        access_token,
+      })
+      
     } catch (error) {
       throw error;
     }
