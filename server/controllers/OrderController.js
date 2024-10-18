@@ -31,34 +31,35 @@ q
         }
     }
 
-    static async myOrder (req, res){
+    static async allMyOrder (req, res){
         try {
+            const {userId} = req.params
 
-            const {id} = req.params
-
-            const allMyOrder = await Order.findAll({
+            const myOrders = await Order.findAll({
                 where:{
-                    id
+                    userId
                 }
             })
 
             res.status(200).json({
-                allMyOrder
+                myOrders
             })
             
         } catch (error) {
+            // console.log(error,`one order`);
             throw error
         }
     }
 
     static async userOneOrder(req,res){
         try {
+            const {orderId} = req.params
 
-            const {id} = req.params
+            console.log(orderId,`??`);
             
             const currentOrder = await Order.findOne({
                 where : {
-                    id
+                    orderId
                 }
             })
 
