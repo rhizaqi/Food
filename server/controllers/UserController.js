@@ -40,8 +40,7 @@ module.exports = class UserController {
   static async login(req, res, next) {
     try {
       const { email, password } = req.body;
-
-      console.log(req.body, `??/`);
+      // console.log(req.body, `??/`);
 
       const goIn = await User.findOne({
         where: {
@@ -64,11 +63,13 @@ module.exports = class UserController {
         name: goIn.name,
       });
 
-      // console.log(createToken, `tokenn`);
+      // console.log(access_token, `tokenn`);
+
       res.status(200).json({
         access_token,
       })
       
+      // next()
     } catch (error) {
       throw error;
     }

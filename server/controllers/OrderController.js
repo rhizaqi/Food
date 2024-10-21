@@ -3,6 +3,7 @@ const {Order, Food, User} = require('../models/')
 module.exports = class orderController {
     static async getOrder (req, res){
         try {
+
             const allOrder = await Order.findAll({
                 include: [
                     User, Food
@@ -14,7 +15,7 @@ module.exports = class orderController {
             throw error
         }
     }
-q
+
     static async makeOrder (req, res){
         try {
             const {userId, foodId} = req.body
