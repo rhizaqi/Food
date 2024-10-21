@@ -16,7 +16,7 @@ module.exports = class UserController {
     }
   }
 
-  static async register(req, res) {
+  static async register(req, res,next) {
     try {
       const { name, email, password } = req.body;
 
@@ -32,8 +32,9 @@ module.exports = class UserController {
         message: "Successfully registered",
       });
     } catch (error) {
-      console.log(error, `???`);
-      throw error;
+      // console.log(error, `???`);
+      // throw error;
+      next(error)
     }
   }
 
