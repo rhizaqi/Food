@@ -15,7 +15,7 @@ module.exports = class UserController {
     }
   }
 
-  static async register(req, res,next) {
+  static async register(req, res, next) {
     try {
       const { name, email, password } = req.body;
 
@@ -33,7 +33,7 @@ module.exports = class UserController {
     } catch (error) {
       // console.log(error, `???`);
       // throw error;
-      next(error)
+      next(error);
     }
   }
 
@@ -50,14 +50,20 @@ module.exports = class UserController {
 
       // console.log(goIn, `User <<<<`);
 
-      if (!goIn) {
-        throw error;
+      if (!goIn || null) {
+        throw {
+          name: "UserNotFound",
+        };
       }
 
       const checkPassword = comparePassword(password, goIn.password);
+      // console.log(checkPassword, `??`);
 
-      console.log(checkPassword, `??`);
-
+      if(!checkPassword){
+        throw {
+          name:"InvalidInput"
+        }
+      }
       const access_token = signToken({
         id: goIn.id,
         name: goIn.name,
@@ -67,11 +73,11 @@ module.exports = class UserController {
 
       res.status(200).json({
         access_token,
-      })
-      
+      });
+
       // next()
     } catch (error) {
-      next(error)
+      next(error);
     }
   }
 };

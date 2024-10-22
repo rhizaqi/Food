@@ -1,6 +1,5 @@
 async function errorHandle(error, req, res, next) {
   console.log(error, `<< error handler`);
-
   try {
     switch (error.name) {
       case "SequelizeValidationError":
@@ -10,7 +9,18 @@ async function errorHandle(error, req, res, next) {
         });
         break;
 
-        
+      case "UserNotFound":
+        res.status(404).json({
+          message: "User not found",
+        });
+        break;
+
+      case "InvalidInput":
+        res.status(400).json({
+          message: "Invalid email or password",
+        });
+        break;
+
       default:
         res.status(500).json({
           message: "InternalServerError",

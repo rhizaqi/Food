@@ -4,18 +4,22 @@ async function authentication(req, res, next) {
   try {
     console.log("<<<<<< masuk auth");
 
-    const {authorization} = req.headers
-    const token = authorization.split(" ")[1]
-    
-    console.log(token,`dapat ??`);
+    const { authorization } = req.headers;
+    const token = authorization.split(" ")[1];
 
-    const isiToken = verifyToken(token)
+    console.log(token, `dapat ??`);
 
-    console.log(isiToken,`iya ??/`);
-    
-    
+    const isiToken = verifyToken(token);
 
-    next()
+    console.log(isiToken, `iya ??/`);
+
+    req.user = {
+      id: isiToken.id,
+      name: isiToken.name,
+    };
+
+    // { id: 13, name: 'coba', iat: 1729490429 } iya ??/
+    next();
   } catch (error) {
     throw error;
   }
