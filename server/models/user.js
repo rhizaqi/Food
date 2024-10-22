@@ -37,11 +37,14 @@ module.exports = (sequelize, DataTypes) => {
           notNull: {
             msg: "Email is required",
           },
+          isEmail:{
+            msg:"Email format is not valid"
+          }
         },
         unique: {
           args: true,
-          msg:"Email is already taken"
-        }
+          msg: "Email is already taken",
+        },
       },
       password: {
         type: DataTypes.STRING,
