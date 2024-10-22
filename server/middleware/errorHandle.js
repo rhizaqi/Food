@@ -1,23 +1,25 @@
 async function errorHandle(error, req, res, next) {
-    try {
-        
+  console.log(error, `<< error handler`);
 
-        switch (error.name) {
-            case "SequelizeValidationError":
-                res.status(400).json({
-                    message:error.errors[0].message
-                })
-                break;
+  try {
+    switch (error.name) {
+      case "SequelizeValidationError":
+      case "SequelizeUniqueConstraintError":
+        res.status(400).json({
+          message: error.errors[0].message,
+        });
+        break;
+
         
-            default:
-                res.status(500).json({
-                    message:"InternalServerError"
-                })
-                break;
-        }
-    } catch (error) {
-        throw error
+      default:
+        res.status(500).json({
+          message: "InternalServerError",
+        });
+        break;
     }
+  } catch (error) {
+    throw error;
+  }
 }
 
-module.exports = errorHandle
+module.exports = errorHandle;

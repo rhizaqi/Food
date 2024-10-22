@@ -11,7 +11,6 @@ module.exports = class UserController {
       res.status(200).json(data);
     } catch (error) {
       console.log(error, `<< error nya`);
-
       throw error;
     }
   }
@@ -72,7 +71,7 @@ module.exports = class UserController {
       
       // next()
     } catch (error) {
-      throw error;
+      next(error)
     }
   }
 };
