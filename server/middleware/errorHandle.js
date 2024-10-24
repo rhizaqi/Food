@@ -11,7 +11,19 @@ async function errorHandle(error, req, res, next) {
 
       case "UserNotFound":
         res.status(404).json({
-          message: "User not found",
+          message: "You are not registered",
+        });
+        break;
+
+      case "BadRequest":
+        res.status(400).json({
+          message: "Please insert your email/password",
+        });
+        break;
+
+      case "JsonWebTokenError":
+        res.status(401).json({
+          message: "Invalid Credential",
         });
         break;
 
@@ -28,7 +40,9 @@ async function errorHandle(error, req, res, next) {
         break;
     }
   } catch (error) {
-    throw error;
+    // console.log(error,`<< ini error <<`);
+    // throw error;
+    next(error);
   }
 }
 

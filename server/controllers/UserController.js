@@ -42,6 +42,12 @@ module.exports = class UserController {
       const { email, password } = req.body;
       // console.log(req.body, `??/`);
 
+      if(!email || !password){
+        throw {
+          name:"BadRequest"
+        }
+      }
+
       const goIn = await User.findOne({
         where: {
           email,
