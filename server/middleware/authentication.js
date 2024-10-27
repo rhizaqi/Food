@@ -14,6 +14,11 @@ async function authentication(req, res, next) {
 
     const token = authorization.split(" ")[1];
 
+    if(!token){
+      throw {
+        name:"Invalid Credential"
+      }
+    }
     // console.log(token, `dapat ??`);
 
     const isiToken = verifyToken(token);
