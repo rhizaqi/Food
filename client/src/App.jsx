@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 // import "./App.css";
 import Card from "./components/card";
+import MainPage from "./pages/mainPage";
 
 
 function App() {
@@ -34,7 +35,8 @@ function App() {
         </p>
       </> */}
       </div>
-      <Card/>
+      {/* <Card/> */}
+      <MainPage/>
     </div>
   );
 }
