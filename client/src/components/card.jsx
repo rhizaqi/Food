@@ -21,6 +21,7 @@ export default function Card() {
           {/* <div className="text-xl"> Button Buy </div> */}
           <Button/>
         </div>
+        {/* Order amount positioned at the bottom left corner */}
       </div>
     </div>
   );
