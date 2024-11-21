@@ -12,8 +12,8 @@ function App() {
   return (
     <div>
       
-      <Card/>
-      {/* <MainPage/> */}
+      {/* <Card/> */}
+      <MainPage/>
     </div>
   );
 }

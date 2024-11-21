@@ -17,11 +17,9 @@ export default function Card() {
           Description sadagldhva sdasdavafwefutwajl sbvdaywy
         </div>
         <div className="p-2 flex flex-row justify-between">
-          <div className="text-xl">Rp Price</div>
-          {/* <div className="text-xl"> Button Buy </div> */}
-          <Button/>
+          <div className="text-2xl">Rp Price</div>
+          <Button />
         </div>
-        {/* Order amount positioned at the bottom left corner */}
       </div>
     </div>
   );
