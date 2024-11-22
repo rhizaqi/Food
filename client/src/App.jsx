@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 // import "./App.css";
 import Card from "./components/card";
 import MainPage from "./pages/mainPage";
+import MainPage2 from "./pages/mainPage2";
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <div>
       
       {/* <Card/> */}
-      <MainPage/>
+      {/* <MainPage/> */}
+      <MainPage2/>
     </div>
   );
 }

@@ -1,4 +1,20 @@
+import { useState } from "react";
+import instance from "../config/config";
+
 export default function MainPage2() {
+
+  const [categories, setCategories] = useState([])
+
+  const fetchCategories = async () => {
+    try {
+      
+    
+    } catch (error) {
+      console.log(error,`categories`);
+      throw error
+    }
+  }
+  
   return (
     <div>
       <div className="flex">
@@ -6,7 +22,7 @@ export default function MainPage2() {
         <div className="w-2/3 p-8">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center">
-              <i className="fas fa-bars text-2xl mr-4"></i>
+              <i className="text-2xl mr-4"></i>
               <h1 className="text-2xl font-semibold">Order something</h1>
             </div>
             <div className="relative">
@@ -15,10 +31,11 @@ export default function MainPage2() {
                 placeholder="Search"
                 type="text"
               />
-              <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              <i className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
             </div>
           </div>
           <div className="flex space-x-4 mb-8">
+            {/* INI ISI KATEGORI */}
             <button className="px-4 py-2 rounded-full border border-green-500 text-green-500">
               All
             </button>
@@ -56,7 +73,7 @@ export default function MainPage2() {
                   classNameic Caesar Salad
                 </h3>
                 <p className="text-gray-500">
-                  <i className="fas fa-star text-yellow-500"></i>
+                  <i className="text-yellow-500"></i>
                   4.5 • Deep Cafe • Salad
                 </p>
               </div>
@@ -72,7 +89,7 @@ export default function MainPage2() {
               <div className="p-4">
                 <h3 className="text-lg font-semibold">Pizza Margherita</h3>
                 <p className="text-gray-500">
-                  <i className="fas fa-star text-yellow-500"></i>
+                  <i className="text-yellow-500"></i>
                   4.0 • Neapolitan • Pizza
                 </p>
               </div>
@@ -90,7 +107,7 @@ export default function MainPage2() {
                   Avocado and Egg Sandwich
                 </h3>
                 <p className="text-gray-500">
-                  <i className="fas fa-star text-yellow-500"></i>
+                  <i className="text-yellow-500"></i>
                   4.0 • Vegan Cafe • Sandwich
                 </p>
               </div>
@@ -106,7 +123,7 @@ export default function MainPage2() {
               <div className="p-4">
                 <h3 className="text-lg font-semibold">Avocado Pesto Pasta</h3>
                 <p className="text-gray-500">
-                  <i className="fas fa-star text-yellow-500"></i>
+                  <i className="text-yellow-500"></i>
                   5.0 • Cafeteria • Pasta
                 </p>
               </div>
@@ -122,7 +139,7 @@ export default function MainPage2() {
               <div className="p-4">
                 <h3 className="text-lg font-semibold">Muesli with Mango</h3>
                 <p className="text-gray-500">
-                  <i className="fas fa-star text-yellow-500"></i>
+                  <i className="text-yellow-500"></i>
                   5.0 • Vegasa • Fruits
                 </p>
               </div>
@@ -138,7 +155,7 @@ export default function MainPage2() {
               <div className="p-4">
                 <h3 className="text-lg font-semibold">Burger with Hamon</h3>
                 <p className="text-gray-500">
-                  <i className="fas fa-star text-yellow-500"></i>
+                  <i className="text-yellow-500"></i>
                   4.5 • Beefer Club • Burger
                 </p>
               </div>
@@ -149,7 +166,7 @@ export default function MainPage2() {
         <div className="w-1/3 bg-white p-8 rounded-l-3xl shadow-lg">
           <div className="flex items-center justify-between mb-8">
             <div className="relative">
-              <i className="fas fa-envelope text-yellow-500 text-2xl"></i>
+              <i className="text-yellow-500 text-2xl"></i>
               <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full px-2">
                 4
               </span>
@@ -222,7 +239,7 @@ export default function MainPage2() {
           </div>
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center">
-              <i className="fas fa-map-marker-alt text-yellow-500 text-2xl mr-4"></i>
+              <i className="text-yellow-500 text-2xl mr-4"></i>
               <div>
                 <span className="block">Delivery</span>
                 <span className="text-gray-500">30-40 min</span>
