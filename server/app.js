@@ -5,6 +5,7 @@
 require("dotenv").config();
 
 // console.log(process.env,`??`);
+const cors = require("cors");
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -13,10 +14,10 @@ const errorHandle = require("./middleware/errorHandle");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 app.use("/", router);
-app.use(errorHandle)
-
+app.use(errorHandle);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

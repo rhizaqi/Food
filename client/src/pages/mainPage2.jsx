@@ -1,20 +1,26 @@
-import { useState } from "react";
-import instance from "../config/config";
+import { useEffect, useState } from "react";
+// import instance from "../config/config";
+// import axios from 'axios';
+import axios from '../config/config.jsx';
 
 export default function MainPage2() {
-
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([]);
 
   const fetchCategories = async () => {
     try {
-      
-    
+      const {data} = await axios.get(`/categories`);
+
+      console.log(data, `<< data nyahh `);
     } catch (error) {
-      console.log(error,`categories`);
-      throw error
-    }
-  }
-  
+      console.log(error, `categories`);
+      throw error;
+    }  
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   return (
     <div>
       <div className="flex">
