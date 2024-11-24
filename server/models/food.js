@@ -49,6 +49,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Description is required",
         },
       },
+      imgUrl: DataTypes.STRING,
       categoryId: DataTypes.INTEGER,
     },
     {

@@ -5,6 +5,7 @@ import viteLogo from "/vite.svg";
 import Card from "./components/card";
 import MainPage from "./pages/mainPage";
 import MainPage2 from "./pages/mainPage2";
+import CardMenu from "./components/CardMenu";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       {/* <Card/> */}
       {/* <MainPage/> */}
       <MainPage2/>
+      {/* <CardMenu/> */}
     </div>
   );
 }

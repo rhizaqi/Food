@@ -1,24 +1,40 @@
 import { useEffect, useState } from "react";
 // import instance from "../config/config";
 // import axios from 'axios';
-import axios from '../config/config.jsx';
+import axios from "../config/config.jsx";
+import ButtonCategories from "../components/ButtonCategories.jsx";
+import CardMenu from "../components/CardMenu.jsx";
 
 export default function MainPage2() {
   const [categories, setCategories] = useState([]);
+  const [menu, setMenu] = useState([]);
 
   const fetchCategories = async () => {
     try {
-      const {data} = await axios.get(`/categories`);
-
-      console.log(data, `<< data nyahh `);
+      const { data } = await axios.get(`/categories`);
+      setCategories(data);
+      // console.log(data, `<< data nyahh `);
     } catch (error) {
       console.log(error, `categories`);
       throw error;
-    }  
+    }
+  };
+
+  const fetchMenu = async () => {
+    try {
+      const { data } = await axios.get(`/foods`);
+      // console.log(data, `data menu-menu nya`);
+      setMenu(data);
+    } catch (error) {
+      console.log(error, `error fetch menu`);
+
+      throw error;
+    }
   };
 
   useEffect(() => {
     fetchCategories();
+    fetchMenu();
   }, []);
 
   return (
@@ -42,130 +58,15 @@ export default function MainPage2() {
           </div>
           <div className="flex space-x-4 mb-8">
             {/* INI ISI KATEGORI */}
-            <button className="px-4 py-2 rounded-full border border-green-500 text-green-500">
-              All
-            </button>
-            <button className="px-4 py-2 rounded-full border border-gray-300">
-              Pizza
-            </button>
-            <button className="px-4 py-2 rounded-full border border-gray-300">
-              Burger
-            </button>
-            <button className="px-4 py-2 rounded-full border border-gray-300">
-              Sushi
-            </button>
-            <button className="px-4 py-2 rounded-full border border-gray-300">
-              Meat
-            </button>
-            <button className="px-4 py-2 rounded-full border border-gray-300">
-              Fruits
-            </button>
-            <button className="px-4 py-2 rounded-full border border-gray-300">
-              Pasta
-            </button>
+            {categories.map((el, i) => {
+              return <ButtonCategories key={i} props={el.nameCategory} />;
+            })}
           </div>
           <h2 className="text-xl font-semibold mb-4">Popular dishes</h2>
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                alt="classNameic Caesar Salad"
-                className="w-full h-40 object-cover"
-                height="400"
-                src="https://storage.googleapis.com/a1aa/image/VflC69lfAtgXepDiShzbKi0d4tkSDDANrKyEmJHRFp1kQYmnA.jpg"
-                width="600"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">
-                  classNameic Caesar Salad
-                </h3>
-                <p className="text-gray-500">
-                  <i className="text-yellow-500"></i>
-                  4.5 • Deep Cafe • Salad
-                </p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                alt="Pizza Margherita"
-                className="w-full h-40 object-cover"
-                height="400"
-                src="https://storage.googleapis.com/a1aa/image/CjFeUixlnflObEkGCmDPfwNEMDbXjgJ77gwN7IUy031bQYmnA.jpg"
-                width="600"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">Pizza Margherita</h3>
-                <p className="text-gray-500">
-                  <i className="text-yellow-500"></i>
-                  4.0 • Neapolitan • Pizza
-                </p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                alt="Avocado and Egg Sandwich"
-                className="w-full h-40 object-cover"
-                height="400"
-                src="https://storage.googleapis.com/a1aa/image/TQanWepyg5XNWiweaaY5qtUKkXaFEJZGfePxHxf2GQVoDhZeE.jpg"
-                width="600"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">
-                  Avocado and Egg Sandwich
-                </h3>
-                <p className="text-gray-500">
-                  <i className="text-yellow-500"></i>
-                  4.0 • Vegan Cafe • Sandwich
-                </p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                alt="Avocado Pesto Pasta"
-                className="w-full h-40 object-cover"
-                height="400"
-                src="https://storage.googleapis.com/a1aa/image/MJfGwSwX3XzJZysQRI2n171LVMvebqDZULntvZQtynIXIMzTA.jpg"
-                width="600"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">Avocado Pesto Pasta</h3>
-                <p className="text-gray-500">
-                  <i className="text-yellow-500"></i>
-                  5.0 • Cafeteria • Pasta
-                </p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                alt="Muesli with Mango"
-                className="w-full h-40 object-cover"
-                height="400"
-                src="https://storage.googleapis.com/a1aa/image/V6bMdxUcyc4PBdhWAhXzZAnQdH8nWeSmlv4ZxealjefvhwMPB.jpg"
-                width="600"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">Muesli with Mango</h3>
-                <p className="text-gray-500">
-                  <i className="text-yellow-500"></i>
-                  5.0 • Vegasa • Fruits
-                </p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
-                alt="Burger with Hamon"
-                className="w-full h-40 object-cover"
-                height="400"
-                src="https://storage.googleapis.com/a1aa/image/wIf4XxuUuQU8OapwB5qzUfKOPWUNNju0YGtTeWeJ3f3PDhZeE.jpg"
-                width="600"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">Burger with Hamon</h3>
-                <p className="text-gray-500">
-                  <i className="text-yellow-500"></i>
-                  4.5 • Beefer Club • Burger
-                </p>
-              </div>
-            </div>
+            {menu.map((el, i) => {
+              return <CardMenu key={i} props={el} />;
+            })}
           </div>
         </div>
         {/* <!-- Right Section --> */}
