@@ -26,5 +26,82 @@
     "description": "Pasta with creamy sauce, pancetta, and parmesan cheese.",
     "imgUrl": "https://images.unsplash.com/photo-1560434019-4558f9a9e2a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BhZ2hldGklMjBDYXJib25hcmF8ZW58MHx8MHx8fDA%3D",
     "categoryId": 4
+  },
+  {
+    "name": "BBQ Ribs",
+    "price": 15.99,
+    "description": "Tender ribs coated in smoky BBQ sauce, served with coleslaw.",
+    "imgUrl": "https://images.unsplash.com/photo-1551782450-56a6181e1b29?q=80&w=1280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 3
+  },
+  {
+    "name": "Vegetable Stir-fry",
+    "price": 7.49,
+    "description": "A mix of fresh veggies stir-fried in a soy-based sauce.",
+    "imgUrl": "https://images.unsplash.com/photo-1602269333720-bc3c5a7fa9a9?q=80&w=1440&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 2
+  },
+  {
+    "name": "Fish Tacos",
+    "price": 9.75,
+    "description": "Grilled fish, cabbage slaw, and a tangy sauce in soft tortillas.",
+    "imgUrl": "https://images.unsplash.com/photo-1610624363587-8a5b6808720b?q=80&w=1536&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 2
+  },
+  {
+    "name": "Chicken Alfredo",
+    "price": 13.99,
+    "description": "Creamy alfredo sauce with grilled chicken served over fettuccine pasta.",
+    "imgUrl": "https://images.unsplash.com/photo-1598756337235-6fe05530262c?q=80&w=1536&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 4
+  },
+  {
+    "name": "Tuna Salad",
+    "price": 5.99,
+    "description": "Fresh tuna with mixed greens, cucumber, and vinaigrette.",
+    "imgUrl": "https://images.unsplash.com/photo-1604979328235-becf678d97c8?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 2
+  },
+  {
+    "name": "Buffalo Wings",
+    "price": 11.25,
+    "description": "Spicy buffalo wings served with ranch or blue cheese dressing.",
+    "imgUrl": "https://images.unsplash.com/photo-1576036950806-d55919bb4f12?q=80&w=1280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 3
+  },
+  {
+    "name": "Vegetarian Pizza",
+    "price": 9.49,
+    "description": "A pizza topped with a variety of fresh vegetables.",
+    "imgUrl": "https://images.unsplash.com/photo-1604065633204-5b2a1b8e778b?q=80&w=1536&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 1
+  },
+  {
+    "name": "Veggie Burger",
+    "price": 9.99,
+    "description": "A delicious plant-based patty with lettuce, tomato, and vegan mayo on a whole wheat bun.",
+    "imgUrl": "https://images.unsplash.com/photo-1623966458399-1c3b8b85f728?q=80&w=1536&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 3
+  },
+  {
+    "name": "Lasagna",
+    "price": 14.99,
+    "description": "Layers of pasta, ground beef, mozzarella cheese, and marinara sauce, baked to perfection.",
+    "imgUrl": "https://images.unsplash.com/photo-1572907811226-7a6597c8f76a?q=80&w=1280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 4
+  },
+  {
+    "name": "Chicken Quesadilla",
+    "price": 8.25,
+    "description": "Grilled flour tortilla filled with seasoned chicken, cheese, and salsa.",
+    "imgUrl": "https://images.unsplash.com/photo-1571171637578-4b36d389db8a?q=80&w=1280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 2
+  },
+  {
+    "name": "Eggplant Parmesan",
+    "price": 11.99,
+    "description": "Breaded eggplant slices layered with marinara sauce and melted mozzarella cheese.",
+    "imgUrl": "https://images.unsplash.com/photo-1600565852217-91f0276e1009?q=80&w=1280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "categoryId": 4
   }
 ]
