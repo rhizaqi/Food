@@ -58,6 +58,9 @@ export default function MainPage2() {
           </div>
           <div className="flex space-x-4 mb-8">
             {/* INI ISI KATEGORI */}
+            <button className="px-4 py-2 rounded-full border border-gray-300 hover:bg-green-700">
+              All
+            </button>
             {categories.map((el, i) => {
               return <ButtonCategories key={i} props={el.nameCategory} />;
             })}
