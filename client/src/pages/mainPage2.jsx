@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-// import instance from "../config/config";
-// import axios from 'axios';
 import axios from "../config/config.jsx";
 import ButtonCategories from "../components/ButtonCategories.jsx";
 import CardMenu from "../components/CardMenu.jsx";
+import CardOrder from "../components/CardOrder.jsx";
 
 export default function MainPage2() {
   const [categories, setCategories] = useState([]);
   const [menu, setMenu] = useState([]);
+  const [order, setOrder] = useState([1,1,1,1,1]);
+
 
   const fetchCategories = async () => {
     try {
@@ -35,11 +36,14 @@ export default function MainPage2() {
   useEffect(() => {
     fetchCategories();
     fetchMenu();
+
+    console.log(order,`>> 22`);
+    
   }, []);
 
   return (
     <div>
-      <div className="flex">
+      <div className="flex bg-yellow-100">
         {/* <!-- Left Section --> */}
         <div className="w-2/3 p-8">
           <div className="flex items-center justify-between mb-8">
@@ -58,7 +62,7 @@ export default function MainPage2() {
           </div>
           <div className="flex space-x-4 mb-8">
             {/* INI ISI KATEGORI */}
-            <button className="px-4 py-2 rounded-full border border-gray-300 hover:bg-green-700">
+            <button className="px-4 py-2 bg-white rounded-xl border border-gray-300 hover:bg-green-700">
               All
             </button>
             {categories.map((el, i) => {
@@ -68,7 +72,7 @@ export default function MainPage2() {
           <h2 className="text-xl font-semibold mb-4">Popular dishes</h2>
           <div className="grid grid-cols-2 gap-6">
             {menu.map((el, i) => {
-              return <CardMenu key={i} props={el} />;
+              return <CardMenu key={i} props={el} props2={order} />;
             })}
           </div>
         </div>
@@ -92,65 +96,15 @@ export default function MainPage2() {
               <span className="font-semibold">Sarah James</span>
             </div>
           </div>
-          <h2 className="text-xl font-semibold mb-4">My order</h2>
-          <div className="space-y-4 mb-8">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <img
-                  alt="Greek Salad"
-                  className="w-12 h-12 rounded-full mr-4"
-                  height="50"
-                  src="https://storage.googleapis.com/a1aa/image/6pRfSriRQhSFPyD8NqntP9LDCytzFJpYEC1njASemVpPIMzTA.jpg"
-                  width="50"
-                />
-                <span>1 × Greek Salad</span>
-              </div>
-              <span>€34</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <img
-                  alt="Grilled Fish"
-                  className="w-12 h-12 rounded-full mr-4"
-                  height="50"
-                  src="https://storage.googleapis.com/a1aa/image/zVa0ccBhvw7ZA9zAeU1piHvJnaouk8BbmKMRXASeTupQIMzTA.jpg"
-                  width="50"
-                />
-                <span>2 × Grilled Fish</span>
-              </div>
-              <span>€52</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <img
-                  alt="Beef Steak"
-                  className="w-12 h-12 rounded-full mr-4"
-                  height="50"
-                  src="https://storage.googleapis.com/a1aa/image/esPIJ9k23QQ4WyvwOEvkDLzmzglTWc0r1IkKR0lq5MLKEm5JA.jpg"
-                  width="50"
-                />
-                <span>1 × Beef Steak</span>
-              </div>
-              <span>€48</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <img
-                  alt="Ramen"
-                  className="w-12 h-12 rounded-full mr-4"
-                  height="50"
-                  src="https://storage.googleapis.com/a1aa/image/rbar9tnQydqQFxcoxkiQdYCfR7D4Ct2vrnSF7bF5fWnOIMzTA.jpg"
-                  width="50"
-                />
-                <span>1 × Ramen</span>
-              </div>
-              <span>€29</span>
-            </div>
+          <h2 className="text-xl font-semibold mb-4">My Order</h2>
+          <div className="flex flex-col gap-2 ">
+            <CardOrder />
+            {/* terus ini di map */}
           </div>
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center">
               <i className="text-yellow-500 text-2xl mr-4"></i>
-              <div>
+              <div className="mt-5">
                 <span className="block">Delivery</span>
                 <span className="text-gray-500">30-40 min</span>
               </div>

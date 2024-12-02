@@ -1,7 +1,16 @@
-export default function CardMenu({ props }) {
-  console.log(props, `ini data menu`);
+export default function CardMenu({ props, props2 }) {
+  // console.log(props, `ini data menu`);
+  // console.log(order,`2222222 di card menu`);
+  console.log(props2, `2222222 di card menu`);
 
-  // console.log(props.Category,`ini category menu`);
+  function handleAddtoCart() {
+    try {
+      console.log("click to add");
+    } catch (error) {
+      console.log(error, `error in card menu - handle add to cart`);
+      throw error;
+    }
+  }
 
   return (
     <div className="p-5 bg-white rounded-xl shadow-md overflow-hidden">
@@ -21,9 +30,15 @@ export default function CardMenu({ props }) {
           </p>
         </div>
 
-        <div>
-          <button className="px-4 py-2 rounded-full border border-gray-300 hover:bg-green-700">
-          Add
+        <div className="flex gap-2">
+          <div className="px-6 py-4 rounded-xl border border-yellow-500 bg-yellow-400">
+            $ {props.price}
+          </div>
+          <button
+            onClick={handleAddtoCart}
+            className="px-4 py-4 rounded-xl border border-gray-400 bg-green-500 hover:bg-green-700"
+          >
+            Add
           </button>
         </div>
       </div>
