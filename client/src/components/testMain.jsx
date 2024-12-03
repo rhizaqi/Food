@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TestCard from "./testCard";
 
-const TestMain = () => {
+export default function TestMain () {
   const [selectedCard, setSelectedCard] = useState(null);
 
   // Callback function to handle data from child
@@ -18,5 +18,3 @@ const TestMain = () => {
     </div>
   );
 };
-
-export default TestMain;

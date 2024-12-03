@@ -7,8 +7,20 @@ import CardOrder from "../components/CardOrder.jsx";
 export default function MainPage2() {
   const [categories, setCategories] = useState([]);
   const [menu, setMenu] = useState([]);
-  const [order, setOrder] = useState([1,1,1,1,1]);
+  const [order, setOrder] = useState();
 
+  const handleAddtoCart = (value) => {
+    try {
+      console.log("click to add di menu");
+      console.log(value, `iya kah?`);
+
+      const orderList = 0
+
+    } catch (error) {
+      console.log(error, `error in card menu - handle add to cart`);
+      throw error;
+    }
+  };
 
   const fetchCategories = async () => {
     try {
@@ -37,8 +49,7 @@ export default function MainPage2() {
     fetchCategories();
     fetchMenu();
 
-    console.log(order,`>> 22`);
-    
+    // handleAddtoCart();
   }, []);
 
   return (
@@ -72,7 +83,9 @@ export default function MainPage2() {
           <h2 className="text-xl font-semibold mb-4">Popular dishes</h2>
           <div className="grid grid-cols-2 gap-6">
             {menu.map((el, i) => {
-              return <CardMenu key={i} props={el} props2={order} />;
+              return (
+                <CardMenu key={i} props={el} addToCart={handleAddtoCart} />
+              );
             })}
           </div>
         </div>

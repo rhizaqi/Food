@@ -17,9 +17,9 @@ function App() {
       
       {/* <Card/> */}
       {/* <MainPage/> */}
-      {/* <MainPage2/> */}
+      <MainPage2/>
       {/* <CardMenu/> */}
-      <TestMain/>
+      {/* <TestMain/> */}
     </div>
   );
 }
