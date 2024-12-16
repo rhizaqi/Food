@@ -9,13 +9,12 @@ export default function MainPage2() {
   const [menu, setMenu] = useState([]);
   const [order, setOrder] = useState();
 
-  const handleAddtoCart = (value) => {
+  const handleAddtoCart = async (value) => {
     try {
-      console.log("click to add di menu");
-      console.log(value, `iya kah?`);
+      // console.log(value, `iya kah?`);
+      const { data } = await axios.get(`/foods/` + value);
 
-      const orderList = 0
-
+      
     } catch (error) {
       console.log(error, `error in card menu - handle add to cart`);
       throw error;

@@ -1,8 +1,4 @@
 export default function CardMenu({ props, addToCart }) {
-  // console.log(props, `ini data menu`);
-  // console.log(order,`2222222 di card menu`);
-  // console.log(props2, `2222222 di card menu`);
-
   // console.log(addToCart,`gimana?`);
 
   return (
