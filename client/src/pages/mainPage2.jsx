@@ -7,14 +7,28 @@ import CardOrder from "../components/CardOrder.jsx";
 export default function MainPage2() {
   const [categories, setCategories] = useState([]);
   const [menu, setMenu] = useState([]);
-  const [order, setOrder] = useState();
+  const [order, setOrder] = useState([]);
 
   const handleAddtoCart = async (value) => {
     try {
-      // console.log(value, `iya kah?`);
-      const { data } = await axios.get(`/foods/` + value);
+      console.log(value, `iya kah?`);
+      const resp = await axios.get(`/foods/` + value);
 
+      console.log(resp.data);
+
+      const newOrder = [...order, resp.data];
+      console.log(newOrder,`??? >>>>>`);
       
+      // let TotalPrice = newOrder.map((el)=>{
+      //   return (
+      //    TotalPrice = sum (el.price)
+      //   )
+      // })
+
+      console.log(TotalPrice,`totla price`);
+      
+      
+      setOrder(newOrder);
     } catch (error) {
       console.log(error, `error in card menu - handle add to cart`);
       throw error;
@@ -110,7 +124,9 @@ export default function MainPage2() {
           </div>
           <h2 className="text-xl font-semibold mb-4">My Order</h2>
           <div className="flex flex-col gap-2 ">
-            <CardOrder />
+            {order.map((el, i) => {
+              return <CardOrder key={i} props={el} />;
+            })}
             {/* terus ini di map */}
           </div>
           <div className="flex items-center justify-between mb-8">
@@ -121,7 +137,7 @@ export default function MainPage2() {
                 <span className="text-gray-500">30-40 min</span>
               </div>
             </div>
-            <span>€5</span>
+            
           </div>
           <div className="flex items-center justify-between mb-8">
             <span className="text-lg font-semibold">Total Amount:</span>
