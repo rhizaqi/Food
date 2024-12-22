@@ -1,0 +1,42 @@
+[
+    {
+        "id": 11,
+        "name": "Vegetarian Pizza",
+        "price": 9,
+        "description": "A pizza topped with a variety of fresh vegetables.",
+        "imgUrl": "https://images.unsplash.com/photo-1617470703245-ed7bc56788e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFZlZ2V0YXJpYW4lMjBQaXp6YXxlbnwwfHwwfHx8MA%3D%3D",
+        "categoryId": 1,
+        "createdAt": "2024-12-03T15:39:17.020Z",
+        "updatedAt": "2024-12-03T15:39:17.020Z"
+    },
+    {
+        "id": 1,
+        "name": "Margherita Pizza",
+        "price": 9,
+        "description": "Classic pizza with fresh tomatoes, mozzarella cheese, and basil.",
+        "imgUrl": "https://images.unsplash.com/photo-1598023696416-0193a0bcd302?q=80&w=1536&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dz",
+        "categoryId": 1,
+        "createdAt": "2024-12-03T15:39:17.020Z",
+        "updatedAt": "2024-12-03T15:39:17.020Z"
+    },
+    {
+        "id": 9,
+        "name": "Tuna Salad",
+        "price": 6,
+        "description": "Fresh tuna with mixed greens, cucumber, and vinaigrette.",
+        "imgUrl": "https://images.unsplash.com/photo-1604909052743-94e838986d24?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "categoryId": 2,
+        "createdAt": "2024-12-03T15:39:17.020Z",
+        "updatedAt": "2024-12-03T15:39:17.020Z"
+    },
+    {
+        "id": 14,
+        "name": "Chicken Quesadilla",
+        "price": 8,
+        "description": "Grilled flour tortilla filled with seasoned chicken, cheese, and salsa.",
+        "imgUrl": "https://images.unsplash.com/photo-1618040996337-56904b7850b9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "categoryId": 2,
+        "createdAt": "2024-12-03T15:39:17.020Z",
+        "updatedAt": "2024-12-03T15:39:17.020Z"
+    }
+]
