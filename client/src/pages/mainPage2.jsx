@@ -7,7 +7,7 @@ import CardOrder from "../components/CardOrder.jsx";
 export default function MainPage2() {
   const [categories, setCategories] = useState([]);
   const [menu, setMenu] = useState([]);
-  const [order, setOrder] = useState();
+  const [order, setOrder] = useState([]);
 
   const handleAddtoCart = async (value) => {
     try {
