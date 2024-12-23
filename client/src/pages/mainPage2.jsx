@@ -8,6 +8,7 @@ export default function MainPage2() {
   const [categories, setCategories] = useState([]);
   const [menu, setMenu] = useState([]);
   const [order, setOrder] = useState([]);
+  const [priceTotal, setPriceTotal] = useState()
 
   const handleAddtoCart = async (value) => {
     try {
@@ -17,18 +18,22 @@ export default function MainPage2() {
       console.log(resp.data);
 
       const newOrder = [...order, resp.data];
-      console.log(newOrder,`??? >>>>>`);
-      
-      // let TotalPrice = newOrder.map((el)=>{
-      //   return (
-      //    TotalPrice = sum (el.price)
-      //   )
-      // })
+      console.log(newOrder, `??? >>>>>`);
 
-      console.log(TotalPrice,`totla price`);
-      
-      
       setOrder(newOrder);
+
+      const addPrice = newOrder.map((el) => {
+        return el.price;
+      });
+
+      let TotalPrice = 0;
+
+      addPrice.forEach((el) => {
+        TotalPrice = TotalPrice += el;
+      });
+
+      // console.log(TotalPrice, `>> totoal??`);
+      setPriceTotal(TotalPrice)
     } catch (error) {
       console.log(error, `error in card menu - handle add to cart`);
       throw error;
@@ -137,11 +142,10 @@ export default function MainPage2() {
                 <span className="text-gray-500">30-40 min</span>
               </div>
             </div>
-            
           </div>
           <div className="flex items-center justify-between mb-8">
             <span className="text-lg font-semibold">Total Amount:</span>
-            <span className="text-2xl font-semibold">€168</span>
+            <span className="text-2xl font-semibold">${priceTotal}</span>
           </div>
           <button className="w-full py-3 bg-green-500 text-white rounded-full font-semibold">
             Checkout
