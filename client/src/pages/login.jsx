@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "../config/config.jsx";
-import { useNavigate } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -24,13 +24,15 @@ export default function Login() {
   const loginHandle = async (event) => {
     event.preventDefault();
     try {
-      const goLogin = await axios({
+      const {data} = await axios({
         method: "post",
         url: "/user/login",
         data: user,
       });
 
-      console.log(goLogin, `>> ??`);
+      // console.log(goLogin, `>> ??`);
+      localStorage.setItem("access_token", data.access_token)
+      navigate("/")
     } catch (error) {
       console.log(error, `error login`);
       throw error;

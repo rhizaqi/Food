@@ -1,0 +1,2 @@
+SECRET = "jeweteSecret"
+JWT_SECRET="RAHASIAKITA"

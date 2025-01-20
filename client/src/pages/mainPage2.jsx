@@ -8,11 +8,11 @@ export default function MainPage2() {
   const [categories, setCategories] = useState([]);
   const [menu, setMenu] = useState([]);
   const [order, setOrder] = useState([]);
-  const [priceTotal, setPriceTotal] = useState()
+  const [priceTotal, setPriceTotal] = useState();
 
   const handleAddtoCart = async (value) => {
     try {
-      console.log(value, `iya kah?`);
+      // console.log(value, `iya kah?`);
       const resp = await axios.get(`/foods/` + value);
 
       console.log(resp.data);
@@ -20,7 +20,28 @@ export default function MainPage2() {
       const newOrder = [...order, resp.data];
       console.log(newOrder, `??? >>>>>`);
 
-      setOrder(newOrder);
+      let orderPdf = [];
+
+      newOrder.forEach((el) => {
+        let existingItem = orderPdf.find(
+          (el2) => el2.name === el.name && el2.categoryId === el.categoryId
+        );
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+          existingItem.totalPrice = existingItem.quantity * existingItem.price;
+        } else {
+          orderPdf.push({
+            name: el.name,
+            categoryId: el.categoryId,
+            quantity: 1,
+            price: el.price,
+            totalPrice: el.price,
+          });
+        }
+      });
+
+      setOrder(orderPdf);
 
       const addPrice = newOrder.map((el) => {
         return el.price;
@@ -33,7 +54,7 @@ export default function MainPage2() {
       });
 
       // console.log(TotalPrice, `>> totoal??`);
-      setPriceTotal(TotalPrice)
+      setPriceTotal(TotalPrice);
     } catch (error) {
       console.log(error, `error in card menu - handle add to cart`);
       throw error;
