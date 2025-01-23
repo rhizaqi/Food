@@ -1,7 +1,7 @@
-export default function CardOrder({props}) {
+export default function CardOrder({ props }) {
   // ini card order
   // console.log(props,`????`);
-  
+
   return (
     <div className="flex items-center justify-between rounded-full bg-red-200 ">
       <div className="flex items-center p-2">
@@ -12,9 +12,11 @@ export default function CardOrder({props}) {
           src={props.imgUrl}
           width="50"
         />
-        <span>1x {props.name}</span>
+        <span>
+          {props.quantity}x {props.name}
+        </span>
       </div>
-      <span className="m-5">€{props.price}</span>
+      <span className="m-5">€{props.totalPrice}</span>
     </div>
   );
 }

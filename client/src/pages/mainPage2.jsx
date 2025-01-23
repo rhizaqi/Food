@@ -15,46 +15,65 @@ export default function MainPage2() {
       // console.log(value, `iya kah?`);
       const resp = await axios.get(`/foods/` + value);
 
-      console.log(resp.data);
+      let newOrderItem = {
+        name: resp.data.name,
+        categoryId: resp.data.categoryId,
+        price: resp.data.price,
+        quantity: 1,
+        totalPrice: resp.data.price,
+        imgUrl: resp.data.imgUrl,
+      }; // dijadikan 1 type object biar bisa di push ke array order
 
-      const newOrder = [...order, resp.data];
-      console.log(newOrder, `??? >>>>>`);
+      let newOrder = [...order, newOrderItem];
+
+      // console.log(newOrder, `pertama <<<<<<<<<<<<<<<<<<`);
 
       let orderPdf = [];
 
       newOrder.forEach((el) => {
         let existingItem = orderPdf.find(
-          (el2) => el2.name === el.name && el2.categoryId === el.categoryId
+          (el2) =>
+            el2.name === el.name &&
+            el2.categoryId === el.categoryId &&
+            el2.price === el.price
         );
 
         if (existingItem) {
+          // jika item nya ada, update quantity dan totalPrice
           existingItem.quantity += 1;
           existingItem.totalPrice = existingItem.quantity * existingItem.price;
+
+          // console.log(existingItem, ` if existing ?????????????????`);
         } else {
+          // jika item tidak ada, buat entry baru
           orderPdf.push({
             name: el.name,
             categoryId: el.categoryId,
-            quantity: 1,
+            quantity: el.quantity,
             price: el.price,
-            totalPrice: el.price,
+            totalPrice: el.totalPrice,
+            imgUrl: el.imgUrl,
           });
         }
       });
 
       setOrder(orderPdf);
 
-      const addPrice = newOrder.map((el) => {
-        return el.price;
+      // console.log(orderPdf, `dapat orderpdf??`);
+      // console.log(order, `dapat order aja??`);
+
+      const addPrice = orderPdf.map((el) => {
+        return el.totalPrice;
       });
 
-      let TotalPrice = 0;
+      let TotalAllPrice = 0;
 
       addPrice.forEach((el) => {
-        TotalPrice = TotalPrice += el;
+        TotalAllPrice = TotalAllPrice += el;
       });
 
-      // console.log(TotalPrice, `>> totoal??`);
-      setPriceTotal(TotalPrice);
+      // console.log(TotalAllPrice, `>> totoal??`);
+      setPriceTotal(TotalAllPrice);
     } catch (error) {
       console.log(error, `error in card menu - handle add to cart`);
       throw error;
