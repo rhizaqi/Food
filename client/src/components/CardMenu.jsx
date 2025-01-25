@@ -4,7 +4,6 @@ export default function CardMenu({ props, addToCart }) {
   return (
     <div className="p-5 bg-white rounded-xl shadow-md overflow-hidden">
       <img
-        alt=""
         className="w-full h-40 object-cover rounded-xl"
         height="400"
         src={props.imgUrl}

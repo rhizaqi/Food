@@ -3,6 +3,7 @@ import axios from "../config/config.jsx";
 import ButtonCategories from "../components/ButtonCategories.jsx";
 import CardMenu from "../components/CardMenu.jsx";
 import CardOrder from "../components/CardOrder.jsx";
+import { Link, Element } from "react-scroll";
 
 export default function MainPage2() {
   const [categories, setCategories] = useState([]);
@@ -15,6 +16,8 @@ export default function MainPage2() {
       // console.log(value, `iya kah?`);
       const resp = await axios.get(`/foods/` + value);
 
+      console.log(resp.data, `check food id`);
+
       let newOrderItem = {
         name: resp.data.name,
         categoryId: resp.data.categoryId,
@@ -26,7 +29,7 @@ export default function MainPage2() {
 
       let newOrder = [...order, newOrderItem];
 
-      // console.log(newOrder, `pertama <<<<<<<<<<<<<<<<<<`);
+      console.log(newOrder, `pertama <<<<<<<<<<<<<<<<<<`);
 
       let orderPdf = [];
 
@@ -112,21 +115,17 @@ export default function MainPage2() {
 
   return (
     <div>
-      <div className="flex bg-yellow-100">
+      <div className="flex h-full bg-yellow-100">
         {/* <!-- Left Section --> */}
         <div className="w-2/3 p-8">
           <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center">
-              <i className="text-2xl mr-4"></i>
-              <h1 className="text-2xl font-semibold">Order something</h1>
-            </div>
+            <h1 className="text-2xl font-semibold">Order something</h1>
             <div className="relative">
               <input
                 className="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none"
                 placeholder="Search"
                 type="text"
               />
-              <i className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
             </div>
           </div>
           <div className="flex space-x-4 mb-8">
