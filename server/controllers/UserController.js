@@ -54,7 +54,7 @@ module.exports = class UserController {
         },
       });
 
-      // console.log(goIn, `User <<<<`);
+      console.log(goIn, `User <<<<`);
 
       if (!goIn || null) {
         throw {
@@ -73,6 +73,7 @@ module.exports = class UserController {
       const access_token = signToken({
         id: goIn.id,
         name: goIn.name,
+        role:goIn.role
       });
 
       // console.log(access_token, `tokenn`);

@@ -1,15 +1,18 @@
-async function authorization (req, res, next) {
-    try {
-        console.log('masuk di authorization');
+const { User } = require("../models/");
 
-        console.log(req.user,`info user di author`);
+async function authorization(req, res, next) {
+  try {
+    console.log("masuk di authorization");
+    console.log(req.user, `info user di author`);
 
-        
-        next()
-        
-    } catch (error) {
-        next(error)
-    }
+    const user = await User.findByPk(req.user.id);
+
+    
+    
+    next();
+  } catch (error) {
+    next(error);
+  }
 }
 
-module.exports = authorization
+module.exports = authorization;

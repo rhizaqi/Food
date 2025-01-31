@@ -1,0 +1,9 @@
+1. Admin Role:
+
+CRUD for Menu Items (Food and Categories): The admin has full access to add, update, delete, and view food items and categories.
+CRUD for Orders: The admin can manage (view, update, delete) all customer orders, since the admin has broad access to everything.
+
+
+2. Customer Role:
+
+CRUD for Own Orders: Customers can only manage their own orders. They can place new orders, update or delete their existing orders, but only for themselves, not other customers' orders.

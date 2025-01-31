@@ -17,9 +17,18 @@ module.exports = class orderController {
     try {
       const { userId, foodId } = req.body;
 
+      let orderId = `random js`;
+
       const createOrder = await Order.create({
+        orderId: orderId,
         userId,
         foodId,
+        name,
+        categoryId,
+        imgUrl,
+        price,
+        quantity,
+        totalPrice,
       });
 
       res.status(201).json({

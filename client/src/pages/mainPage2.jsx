@@ -19,6 +19,7 @@ export default function MainPage2() {
       console.log(resp.data, `check food id`);
 
       let newOrderItem = {
+        foodId: resp.data.id,
         name: resp.data.name,
         categoryId: resp.data.categoryId,
         price: resp.data.price,
@@ -36,6 +37,7 @@ export default function MainPage2() {
       newOrder.forEach((el) => {
         let existingItem = orderPdf.find(
           (el2) =>
+            el2.foodId === el.foodId &&
             el2.name === el.name &&
             el2.categoryId === el.categoryId &&
             el2.price === el.price
@@ -50,6 +52,7 @@ export default function MainPage2() {
         } else {
           // jika item tidak ada, buat entry baru
           orderPdf.push({
+            foodId: el.foodId,
             name: el.name,
             categoryId: el.categoryId,
             quantity: el.quantity,
@@ -58,6 +61,8 @@ export default function MainPage2() {
             imgUrl: el.imgUrl,
           });
         }
+
+        console.log(orderPdf, `kedua <<<<<<<<<<<<<<<<<<`);
       });
 
       setOrder(orderPdf);
