@@ -9,7 +9,7 @@ const authorization = require("../middleware/authorization");
 
 router.use("/user", userRouter);
 router.use("/foods", foodRouter);
-router.use("/orders", authentication, authorization, orderRouter);
+router.use("/orders", authentication, orderRouter);
 router.use("/categories", categoryRouter)
 
 module.exports = router;

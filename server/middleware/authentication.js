@@ -23,7 +23,6 @@ async function authentication(req, res, next) {
     // console.log(token, `dapat ??`);
 
     const isiToken = verifyToken(token);
-
     // console.log(isiToken, `iya ??/`);
 
     const checkUser = await User.findOne({ where: { id: isiToken.id } });

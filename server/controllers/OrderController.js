@@ -1,7 +1,7 @@
 const { Order, Food, User } = require("../models/");
 
 module.exports = class orderController {
-  static async getOrder(req, res) {
+  static async getOrder(req, res, next) {
     try {
       const allOrder = await Order.findAll({
         include: [User, Food],
@@ -9,11 +9,11 @@ module.exports = class orderController {
 
       res.status(200).json(allOrder);
     } catch (error) {
-      throw error;
+      next();
     }
   }
 
-  static async makeOrder(req, res) {
+  static async makeOrder(req, res, next) {
     try {
       const { foodId, name, categoryId, imgUrl, price, quantity, totalPrice } =
         req.body;
@@ -38,11 +38,11 @@ module.exports = class orderController {
         createOrder,
       });
     } catch (error) {
-      throw error;
+      next();
     }
   }
 
-  static async allMyOrder(req, res) {
+  static async allMyOrder(req, res, next) {
     try {
       const { userId } = req.params;
 
@@ -57,11 +57,11 @@ module.exports = class orderController {
       });
     } catch (error) {
       // console.log(error,`one order`);
-      throw error;
+      next();
     }
   }
 
-  static async userOneOrder(req, res) {
+  static async userOneOrder(req, res, next) {
     try {
       const { orderId } = req.params;
 
@@ -77,7 +77,23 @@ module.exports = class orderController {
         currentOrder,
       });
     } catch (error) {
-      throw error;
+      next();
+    }
+  }
+
+  static async updateOrder(req, res, next) {
+    try {
+      //update users order based on the id of the order
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async deleteOrder(req, res, next) {
+    try {
+      //delete users order based on the id of the order
+    } catch (error) {
+      next(error);
     }
   }
 };
