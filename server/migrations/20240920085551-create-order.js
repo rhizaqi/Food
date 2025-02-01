@@ -27,6 +27,27 @@ module.exports = {
         onUpdate: "cascade",
         onDelete: "cascade",
       },
+      orderId: {
+        type: Sequelize.INTEGER,
+      },
+      name: {
+        type: Sequelize.STRING,
+      },
+      categoryId: {
+        type: Sequelize.INTEGER,
+      },
+      imgUrl: {
+        type: Sequelize.STRING,
+      },
+      price: {
+        type: Sequelize.INTEGER,
+      },
+      quantity: {
+        type: Sequelize.INTEGER,
+      },
+      totalPrice: {
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

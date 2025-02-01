@@ -15,13 +15,16 @@ module.exports = class orderController {
 
   static async makeOrder(req, res) {
     try {
-      const { userId, foodId } = req.body;
+      const { foodId, name, categoryId, imgUrl, price, quantity, totalPrice } =
+        req.body;
 
-      let orderId = `random js`;
+      console.log(req.user, `controller order`);
+
+      let orderId = 1234567890;
 
       const createOrder = await Order.create({
         orderId: orderId,
-        userId,
+        userId: req.user.id,
         foodId,
         name,
         categoryId,

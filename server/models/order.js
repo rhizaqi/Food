@@ -19,8 +19,114 @@ module.exports = (sequelize, DataTypes) => {
   }
   Order.init(
     {
-      userId: DataTypes.INTEGER,
-      foodId: DataTypes.INTEGER,
+      orderId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Order ID is required",
+          },
+          notEmpty: {
+            msg: "Order ID is required",
+          },
+        },
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "User ID is required",
+          },
+          notEmpty: {
+            msg: "User ID is required",
+          },
+        },
+      },
+      foodId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Food ID is required",
+          },
+          notEmpty: {
+            msg: "Food ID is required",
+          },
+        },
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Name food is required",
+          },
+          notEmpty: {
+            msg: "Name food is required",
+          },
+        },
+      },
+      categoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "CategoryId is required",
+          },
+          notEmpty: {
+            msg: "CategoryId is required",
+          },
+        },
+      },
+      imgUrl: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Image Url is required",
+          },
+          notEmpty: {
+            msg: "Image Url is required",
+          },
+        },
+      },
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Price is required",
+          },
+          notEmpty: {
+            msg: "Price is required",
+          },
+        },
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Quantity is required",
+          },
+          notEmpty: {
+            msg: "Quantity is required",
+          },
+        },
+      },
+      totalPrice: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "TotalPrice is required",
+          },
+          notEmpty: {
+            msg: "TotalPrice is required",
+          },
+        },
+      },
     },
     {
       sequelize,
