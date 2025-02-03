@@ -127,6 +127,7 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      statusPayment: DataTypes.STRING,
     },
     {
       sequelize,

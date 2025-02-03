@@ -32,6 +32,7 @@ module.exports = class orderController {
         price,
         quantity,
         totalPrice,
+        statusPayment: "pending",
       });
 
       res.status(201).json({

@@ -48,6 +48,9 @@ module.exports = {
       totalPrice: {
         type: Sequelize.INTEGER,
       },
+      statusPayment: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

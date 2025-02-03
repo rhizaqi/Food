@@ -16,6 +16,7 @@ module.exports = {
     await queryInterface.addColumn("Orders", "price", Sequelize.INTEGER);
     await queryInterface.addColumn("Orders", "quantity", Sequelize.INTEGER);
     await queryInterface.addColumn("Orders", "totalPrice", Sequelize.INTEGER);
+    await queryInterface.addColumn("Orders", "statusPayment", Sequelize.STRING);
   },
 
   async down(queryInterface, Sequelize) {
@@ -33,5 +34,6 @@ module.exports = {
     await queryInterface.removeColumn("Orders", "price", {});
     await queryInterface.removeColumn("Orders", "quantity", {});
     await queryInterface.removeColumn("Orders", "totalPrice", {});
+    await queryInterface.removeColumn("Orders", "statusPayment", {});
   },
 };

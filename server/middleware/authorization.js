@@ -13,13 +13,13 @@ async function authorization(req, res, next) {
 
     console.log(check, 990999);
 
-    if (!user) {
-      return res.status(404).json({ message: "NotFound" });
-    }
+    // if (!user) {
+    //   return res.status(404).json({ message: "NotFound" });
+    // }
 
-    if (req.user.role === "customer") {
+    // if (req.user.role === "customer") {
 
-    }
+    // }
 
     next();
   } catch (error) {
