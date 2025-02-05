@@ -3,6 +3,7 @@ import axios from "../config/config.jsx";
 import ButtonCategories from "../components/ButtonCategories.jsx";
 import CardMenu from "../components/CardMenu.jsx";
 import CardOrder from "../components/CardOrder.jsx";
+import { useNavigate } from "react-router-dom";
 import { Link, Element } from "react-scroll";
 
 export default function MainPage2() {
@@ -10,6 +11,7 @@ export default function MainPage2() {
   const [menu, setMenu] = useState([]);
   const [order, setOrder] = useState([]);
   const [priceTotal, setPriceTotal] = useState();
+  const navigate = useNavigate();
 
   const handleAddtoCart = async (value) => {
     try {
@@ -65,8 +67,6 @@ export default function MainPage2() {
         console.log(orderPdf, `kedua <<<<<<<<<<<<<<<<<<`);
       });
 
-      setOrder(orderPdf);
-
       // console.log(orderPdf, `dapat orderpdf??`);
       // console.log(order, `dapat order aja??`);
 
@@ -82,8 +82,30 @@ export default function MainPage2() {
 
       // console.log(TotalAllPrice, `>> totoal??`);
       setPriceTotal(TotalAllPrice);
+      setOrder(orderPdf);
     } catch (error) {
       console.log(error, `error in card menu - handle add to cart`);
+      throw error;
+    }
+  };
+
+  const checkOut = async () => {
+    try {
+      console.log(order, `order??`);
+
+      const coResp = await axios({
+        method: "post",
+        url: "/orders",
+        data: order[0],
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+      });
+      console.log(coResp, `????? ?????????`);
+
+      navigate("/");
+    } catch (error) {
+      console.log("error mau checkout");
       throw error;
     }
   };
@@ -191,7 +213,10 @@ export default function MainPage2() {
             <span className="text-lg font-semibold">Total Amount:</span>
             <span className="text-2xl font-semibold">${priceTotal}</span>
           </div>
-          <button className="w-full py-3 bg-green-500 text-white rounded-full font-semibold">
+          <button
+            onClick={() => checkOut()}
+            className="w-full py-3 bg-green-500 text-white rounded-full font-semibold"
+          >
             Checkout
           </button>
         </div>

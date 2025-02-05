@@ -4,7 +4,7 @@ const authorization = require("../middleware/authorization");
 const router = express.Router();
 
 router.get("/", orderController.getOrder); // check all customers orders
-router.post("/", authorization, orderController.makeOrder);
+router.post("/", orderController.makeOrder);
 router.get("/:userId", orderController.allMyOrder);
 router.get("/:orderId", orderController.userOneOrder);
 router.put("/:orderId", orderController.updateOrder);

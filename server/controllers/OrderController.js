@@ -18,9 +18,10 @@ module.exports = class orderController {
       const { foodId, name, categoryId, imgUrl, price, quantity, totalPrice } =
         req.body;
 
-      console.log(req.user, `controller order`);
+      console.log(req.user, `controller orderrrrrr`);
+      console.log(req.body, `inputan body`);
 
-      let orderId = 1234567890;
+      let orderId = `1231231231`;
 
       const createOrder = await Order.create({
         orderId: orderId,

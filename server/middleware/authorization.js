@@ -11,7 +11,7 @@ async function authorization(req, res, next) {
       },
     });
 
-    console.log(check, 990999);
+    console.log(check, 990999,`authoir`);
 
     // if (!user) {
     //   return res.status(404).json({ message: "NotFound" });
