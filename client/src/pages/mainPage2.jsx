@@ -96,7 +96,7 @@ export default function MainPage2() {
       const coResp = await axios({
         method: "post",
         url: "/orders",
-        data: order[0],
+        data: order,
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },

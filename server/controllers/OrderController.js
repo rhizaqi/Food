@@ -15,35 +15,57 @@ module.exports = class orderController {
 
   static async makeOrder(req, res, next) {
     try {
-      const { foodId, name, categoryId, imgUrl, price, quantity, totalPrice } =
-        req.body;
+      let orders = req.body;
 
-      console.log(req.user, `controller orderrrrrr`);
-      console.log(req.body, `inputan body`);
+      // bikin order id yg unique
+      let formOrderId = new Date().toLocaleDateString("id-ID").split("/");
+      let orderId =
+        formOrderId.join("") +
+        `-${Math.floor(Math.random() * 100 + 1)}` +
+        `-${Math.random()
+          .toString(36)
+          .replace(/[^a-z]+/g, "")
+          .substr(0, 8)}`;
 
-      let orderId = `1231231231`;
+      let ordersToInput = [];
 
-      const createOrder = await Order.create({
-        orderId: orderId,
-        userId: req.user.id,
-        foodId,
-        name,
-        categoryId,
-        imgUrl,
-        price,
-        quantity,
-        totalPrice,
-        statusPayment: "pending",
-      });
+      // di loop sesuai dengan banyaknya array orderan
+      for (let i = 0; i < orders.length; i++) {
+        const order = orders[i];
+        const {
+          foodId,
+          name,
+          categoryId,
+          imgUrl,
+          price,
+          quantity,
+          totalPrice,
+        } = order;
+
+        const createOrder = await Order.create({
+          orderId: orderId,
+          userId: req.user.id,
+          foodId,
+          name,
+          categoryId,
+          imgUrl,
+          price,
+          quantity,
+          totalPrice,
+          statusPayment: "pending",
+        });
+
+        // tiap object order di masukkan ke database
+        ordersToInput.push(createOrder);
+      }
 
       res.status(201).json({
-        createOrder,
+        orders: ordersToInput
       });
     } catch (error) {
-      next();
+      next(error);
     }
   }
-
   static async allMyOrder(req, res, next) {
     try {
       const { userId } = req.params;

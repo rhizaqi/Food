@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   Order.init(
     {
       orderId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notNull: {
