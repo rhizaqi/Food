@@ -1,0 +1,1 @@
+order > ( create order "pending" ) > if not purchase "pending" and purchase by history order > if purchase on mainpage
