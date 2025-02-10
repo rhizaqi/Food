@@ -25,7 +25,7 @@ module.exports = class UserController {
         password,
       });
 
-      console.log(newUser, `<<<<??`);
+      console.log(newUser, `<<<<?? di controller`);
 
       res.status(200).json({
         message: "Successfully registered",
@@ -42,10 +42,10 @@ module.exports = class UserController {
       const { email, password } = req.body;
       // console.log(req.body, `??/`);
 
-      if(!email || !password){
+      if (!email || !password) {
         throw {
-          name:"BadRequest"
-        }
+          name: "BadRequest",
+        };
       }
 
       const goIn = await User.findOne({
@@ -65,15 +65,15 @@ module.exports = class UserController {
       const checkPassword = comparePassword(password, goIn.password);
       // console.log(checkPassword, `??`);
 
-      if(!checkPassword){
+      if (!checkPassword) {
         throw {
-          name:"InvalidInput"
-        }
+          name: "InvalidInput",
+        };
       }
       const access_token = signToken({
         id: goIn.id,
         name: goIn.name,
-        role:goIn.role
+        role: goIn.role,
       });
 
       // console.log(access_token, `tokenn`);

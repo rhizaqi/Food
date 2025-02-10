@@ -2,11 +2,22 @@ import { createBrowserRouter, redirect } from "react-router-dom";
 import Login from "../pages/login";
 import Register from "../pages/register";
 import MainPage2 from "../pages/mainPage2";
+import HistoryOrder from "../pages/historyOrder";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainPage2 />,
+    loader: () => {
+      if (!localStorage.getItem("access_token")) {
+        return redirect("/login");
+      }
+      return null;
+    },
+  },
+  {
+    path: "/history",
+    element: <HistoryOrder />,
     loader: () => {
       if (!localStorage.getItem("access_token")) {
         return redirect("/login");
