@@ -60,7 +60,7 @@ module.exports = class orderController {
       }
 
       res.status(201).json({
-        orders: ordersToInput
+        orders: ordersToInput,
       });
     } catch (error) {
       next(error);
@@ -68,6 +68,9 @@ module.exports = class orderController {
   }
   static async allMyOrder(req, res, next) {
     try {
+      console.log(req.user);
+      console.log(req.params);
+
       const { userId } = req.params;
 
       const myOrders = await Order.findAll({

@@ -1,8 +1,10 @@
+import { useParams } from "react-router";
 import axios from "../config/config";
 import { useEffect, useState } from "react";
 
 export default function HistoryOrder() {
   const [history, setHistory] = useState([]);
+  const params = useParams();
 
   const fetchHistoryOrder = async () => {
     try {
