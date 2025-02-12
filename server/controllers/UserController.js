@@ -77,10 +77,7 @@ module.exports = class UserController {
       });
 
       // console.log(access_token, `tokenn`);
-
-      res.status(200).json({
-        access_token,
-      });
+      res.status(200).json({ access_token });
 
       // next()
     } catch (error) {

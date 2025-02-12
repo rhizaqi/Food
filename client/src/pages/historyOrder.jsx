@@ -17,6 +17,7 @@ export default function HistoryOrder() {
       });
 
       console.log(resp.data, `<<< try fetch history order >>>`);
+      setHistory(resp.data);  
     } catch (error) {
       console.log(error, `error history order`);
       throw error;
@@ -65,45 +66,47 @@ export default function HistoryOrder() {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  A
-                </th>
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Apple MacBook Pro 17"
-                </th>
-                <td className="px-6 py-4">Silver</td>
-                <td className="px-6 py-4">Laptop</td>
-                <td className="px-6 py-4">$2999</td>
-              </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Microsoft Surface Pro
-                </th>
-                <td className="px-6 py-4">White</td>
-                <td className="px-6 py-4">Laptop PC</td>
-                <td className="px-6 py-4">$1999</td>
-              </tr>
-              <tr className="bg-white dark:bg-gray-800">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Magic Mouse 2
-                </th>
-                <td className="px-6 py-4">Black</td>
-                <td className="px-6 py-4">Accessories</td>
-                <td className="px-6 py-4">$99</td>
-              </tr>
+              {history.map((el, i) => {
+                return (
+                  <tr
+                    key={i}
+                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
+                  >
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {i++}
+                    </th>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {el.foodName}
+                    </th>
+                    <td className="px-6 py-4">Silver</td>
+                    <td className="px-6 py-4">Laptop</td>
+                    <td className="px-6 py-4">$2999</td>
+
+                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                      <td className="px-6 py-4">White</td>
+                      <td className="px-6 py-4">Laptop PC</td>
+                      <td className="px-6 py-4">$1999</td>
+                    </tr>
+                    <tr className="bg-white dark:bg-gray-800">
+                      <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        Magic Mouse 2
+                      </th>
+                      <td className="px-6 py-4">Black</td>
+                      <td className="px-6 py-4">Accessories</td>
+                      <td className="px-6 py-4">$99</td>
+                    </tr>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

@@ -90,6 +90,7 @@ export default function MainPage2() {
   };
 
   const myCart = () => {
+    
     try {
       navigate("/history");
     } catch (error) {
@@ -181,7 +182,7 @@ export default function MainPage2() {
               );
             })}
           </div>
-        </div>  
+        </div>
         {/* <!-- Right Section --> */}
         <div className="w-1/3 bg-white p-8 rounded-l-3xl shadow-lg">
           <div className="flex items-center justify-between mb-8">
