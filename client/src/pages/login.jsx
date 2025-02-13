@@ -50,31 +50,31 @@ export default function Login() {
             id="email"
             value={user.email}
             onChange={(event) => inputHandler(event)}
-            className="p-2 bg-gray-400 w-30 h-10 rounded-xl"
+            className="p-2 bg-gray-400 w-60 h-10 rounded-xl"
           />
         </div>
         <div className="flex flex-col">
           <label className="mt-5 mb-2"> Password </label>
           <input
-            type="text"
+            type="password"
             id="password"
             value={user.password}
             onChange={(event) => inputHandler(event)}
-            className="p-2 bg-gray-400 w-30 h-10 rounded-xl"
+            className="p-2 bg-gray-400 w-60 h-10 rounded-xl"
           />
         </div>
-        <div className="flex justify-between mt-4">
-          <button type="submit" className=" w-20 h-10 bg-red-200 rounded-xl">
+        <div className="flex justify-center mt-4">
+          <button type="submit" className="w-40 h-10 bg-red-200 rounded-xl">
             Login
-          </button>
-          <button
-            onClick={() => moveToRegister()}
-            className=" w-20 h-10 bg-blue-200 rounded-xl"
-          >
-            Register
           </button>
         </div>
       </form>
+      <button
+        onClick={() => moveToRegister()}
+        className="m-4 w-40 h-10 bg-blue-200 rounded-xl"
+      >
+        Register
+      </button>
     </div>
   );
 }
