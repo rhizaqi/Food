@@ -90,7 +90,6 @@ export default function MainPage2() {
   };
 
   const myCart = () => {
-    
     try {
       navigate("/history");
     } catch (error) {
@@ -128,6 +127,15 @@ export default function MainPage2() {
     } catch (error) {
       console.log(error, `categories`);
       throw error;
+    }
+  };
+
+  const logoutHandler = async () => {
+    try {
+      localStorage.clear();
+      navigate("/login");
+    } catch (error) {
+      console.log(`error in logouthandler`);
     }
   };
 
@@ -228,6 +236,7 @@ export default function MainPage2() {
               />
               <span className="font-semibold">Sarah James</span>
             </div>
+            <button onClick={() => logoutHandler()}>Logout</button>
           </div>
           <h2 className="text-xl font-semibold mb-4">My Order</h2>
           <div className="flex flex-col gap-2 ">

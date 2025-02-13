@@ -63,16 +63,18 @@ export default function Login() {
             className="p-2 bg-gray-400 w-30 h-10 rounded-xl"
           />
         </div>
-        <button type="submit" className="mt-2 w-20 h-10 bg-red-200 rounded-xl">
-          Login
-        </button>
+        <div className="flex justify-between mt-4">
+          <button type="submit" className=" w-20 h-10 bg-red-200 rounded-xl">
+            Login
+          </button>
+          <button
+            onClick={() => moveToRegister()}
+            className=" w-20 h-10 bg-blue-200 rounded-xl"
+          >
+            Register
+          </button>
+        </div>
       </form>
-      {/* <button
-        onClick={() => moveToRegister()}
-        className="w-20 h-10 bg-red-200 rounded-xl"
-      >
-        Register
-      </button> */}
     </div>
   );
 }

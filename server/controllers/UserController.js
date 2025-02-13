@@ -23,9 +23,10 @@ module.exports = class UserController {
         name,
         email,
         password,
+        role: "customer",
       });
 
-      console.log(newUser, `<<<<?? di controller`);
+      console.log(newUser, `<<<<?? di controller register`);
 
       res.status(200).json({
         message: "Successfully registered",

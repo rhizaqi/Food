@@ -1,18 +1,27 @@
+const { where } = require("sequelize");
 const { Order, Food, User } = require("../models/");
 
 module.exports = class orderController {
   static async getOrder(req, res, next) {
+    console.log(req.user, 9999999999999);
+
     if (req.user.role === "admin") {
-      console.log(`admin`);
-    } else {
-      console.log(`customer`);
-    }
-    try {
       const allOrder = await Order.findAll({
         include: [User, Food],
       });
 
       res.status(200).json(allOrder);
+    } else {
+      const allOrder = await Order.findAll({
+        include: [User, Food],
+        where: {
+          userId: req.user.id,
+        },
+      });
+
+      res.status(200).json(allOrder);
+    }
+    try {
     } catch (error) {
       next();
     }

@@ -1,7 +1,27 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const [register, setRegister] = useState({
+    
+  });
   const navigate = useNavigate();
+
+  const inputRegister = (event) => {
+    const { value, id } = event.target;
+    setRegister({
+      ...register,
+      [id]: value,
+    });
+  };
+
+  const handleRegister = (e) => {
+    try {
+    } catch (error) {
+      console.log(`errror in register handler`);
+      throw error;
+    }
+  };
 
   const moveToLogin = async () => {
     navigate("/login");
