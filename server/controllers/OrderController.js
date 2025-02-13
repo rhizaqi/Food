@@ -2,6 +2,11 @@ const { Order, Food, User } = require("../models/");
 
 module.exports = class orderController {
   static async getOrder(req, res, next) {
+    if (req.user.role === "admin") {
+      console.log(`admin`);
+    } else {
+      console.log(`customer`);
+    }
     try {
       const allOrder = await Order.findAll({
         include: [User, Food],
