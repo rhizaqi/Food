@@ -17,7 +17,7 @@ export default function HistoryOrder() {
       });
 
       console.log(resp.data, `<<< try fetch history order >>>`);
-      setHistory(resp.data);  
+      setHistory(resp.data);
     } catch (error) {
       console.log(error, `error history order`);
       throw error;
@@ -40,13 +40,13 @@ export default function HistoryOrder() {
                   No.
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Food
-                </th>
-                <th scope="col" className="px-6 py-3">
                   Order Id
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Name
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Image
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Category
@@ -74,36 +74,58 @@ export default function HistoryOrder() {
                   >
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      className="px-6 py-4 font-medium text-gray-900  dark:text-white"
                     >
                       {i++}
                     </th>
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      className="px-6 py-4 font-medium text-gray-900  dark:text-white"
                     >
-                      {el.foodName}
+                      {el.Food.name}
                     </th>
-                    <td className="px-6 py-4">Silver</td>
-                    <td className="px-6 py-4">Laptop</td>
-                    <td className="px-6 py-4">$2999</td>
-
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                      <td className="px-6 py-4">White</td>
-                      <td className="px-6 py-4">Laptop PC</td>
-                      <td className="px-6 py-4">$1999</td>
-                    </tr>
-                    <tr className="bg-white dark:bg-gray-800">
-                      <th
-                        scope="row"
-                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                      >
-                        Magic Mouse 2
-                      </th>
-                      <td className="px-6 py-4">Black</td>
-                      <td className="px-6 py-4">Accessories</td>
-                      <td className="px-6 py-4">$99</td>
-                    </tr>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900  dark:text-white"
+                    >
+                      {el.orderId}
+                    </th>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900  dark:text-white"
+                    >
+                      <img src={el.imgUrl} className="rounded w-30 h-20" />
+                    </th>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900  dark:text-white"
+                    >
+                      {el.categoryId}
+                    </th>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900  dark:text-white"
+                    >
+                      $ {el.price}
+                    </th>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900  dark:text-white"
+                    >
+                      $ {el.quantity}
+                    </th>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900  dark:text-white"
+                    >
+                      $ {el.totalPrice}
+                    </th>
+                    <th
+                      scope="row"
+                      className="px-6 py-4 font-medium text-gray-900  dark:text-white"
+                    >
+                      {el.statusPayment}
+                    </th>
                   </tr>
                 );
               })}
